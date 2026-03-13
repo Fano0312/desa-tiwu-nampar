@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Website Resmi Desa Tiwu Nampar, Kecamatan Komodo, Kabupaten Manggarai Barat, Provinsi Nusa Tenggara Timur">
+<meta name="keywords" content="Desa Tiwu Nampar, Komodo, Manggarai Barat, NTT, wisata, desa">
+<title>Website Resmi Desa Tiwu Nampar</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --hijau:#0d5c3a;--hijau-mid:#1a7a4e;--hijau-light:#2ea06a;--hijau-pale:#e8f5ee;
+  --biru:#0a4a72;--biru-mid:#1565a0;--biru-light:#1e88e5;--biru-pale:#e3f0fb;
+  --emas:#c5830a;--emas-pale:#fdf3e0;
+  --putih:#f8faf9;--abu:#f0f2f0;--border:#dde5dd;
+  --teks:#1a2a1e;--teks2:#4a5a4e;--teks3:#7a8a7e
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--putih);color:var(--teks);overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#f0f2f0}
+::-webkit-scrollbar-thumb{background:var(--hijau-mid);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;transition:all 0.3s}
+nav.scrolled{background:rgba(248,250,249,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:40px;height:40px;background:var(--hijau);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.nav-logo-text{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--hijau);line-height:1.2}
+.nav-logo-sub{font-size:10px;font-weight:400;color:var(--teks3);font-family:'Plus Jakarta Sans',sans-serif}
+.nav-menu{display:flex;gap:4px;align-items:center}
+.nav-menu a{text-decoration:none;font-size:13px;font-weight:500;color:var(--teks2);padding:8px 14px;border-radius:8px;transition:all 0.2s}
+.nav-menu a:hover,.nav-menu a.active{color:var(--hijau);background:var(--hijau-pale)}
+.nav-menu .btn-portal{background:var(--hijau);color:white!important;padding:8px 18px!important}
+.nav-menu .btn-portal:hover{background:var(--hijau-mid)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--teks);border-radius:2px;transition:all 0.3s}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(150deg,#052a18 0%,#0d5c3a 35%,#1a7a4e 65%,#0a4a72 100%);position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-waves{position:absolute;bottom:0;left:0;right:0}
+.hero-waves svg{display:block}
+.hero-content{max-width:1200px;margin:0 auto;padding:100px 24px 80px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:30px;margin-bottom:24px}
+.hero-badge span{font-size:12px;color:rgba(255,255,255,0.9);letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.hero-badge .dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-title{font-family:'Merriweather',serif;font-size:clamp(28px,4vw,52px);color:white;line-height:1.15;font-weight:900;margin-bottom:20px}
+.hero-title em{color:#6ee7b7;font-style:normal}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:36px;font-weight:300;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-hero-primary{background:white;color:var(--hijau);padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.2)}
+.btn-hero-outline{border:2px solid rgba(255,255,255,0.4);color:white;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:500;font-size:14px;transition:all 0.2s}
+.btn-hero-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7)}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.hstat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:20px;backdrop-filter:blur(4px);transition:background 0.3s}
+.hstat:hover{background:rgba(255,255,255,0.16)}
+.hstat-icon{font-size:22px;margin-bottom:8px}
+.hstat-num{font-family:'Merriweather',serif;font-size:26px;font-weight:900;color:white;line-height:1}
+.hstat-label{font-size:12px;color:rgba(255,255,255,0.65);margin-top:4px;font-weight:400}
+.hero-visual-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px;backdrop-filter:blur(8px)}
+.village-illustration{width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;position:relative;background:linear-gradient(180deg,#1a4a6b 0%,#1d7a4a 40%,#2d9a5a 60%,#1a5c8a 80%,#2a7aaa 100%)}
+.vill-sky{position:absolute;top:0;left:0;right:0;height:45%;background:linear-gradient(180deg,#1a3a5c,#2a6a8c)}
+.vill-sun{position:absolute;top:12%;right:18%;width:45px;height:45px;background:radial-gradient(circle,#ffd700,#ff8c00);border-radius:50%;box-shadow:0 0 40px rgba(255,200,0,0.4)}
+.vill-mountain{position:absolute;bottom:35%}
+.vm1{border:none;width:0;height:0;border-left:80px solid transparent;border-right:80px solid transparent;border-bottom:120px solid #0d4a2a;left:5%}
+.vm2{border:none;width:0;height:0;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:160px solid #1a6040;left:25%}
+.vm3{border:none;width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:100px solid #0d3d22;right:10%}
+.vill-sea{position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(180deg,#1a5c8a,#2a7aaa)}
+.vill-wave1{position:absolute;top:5px;left:0;right:0;height:8px;background:rgba(255,255,255,0.12);border-radius:50%}
+.vill-wave2{position:absolute;top:18px;left:10%;right:10%;height:6px;background:rgba(255,255,255,0.08);border-radius:50%}
+.vill-boat{position:absolute;bottom:28%;left:45%;font-size:20px}
+.vill-birds{position:absolute;top:20%;left:15%;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:4px}
+.location-badge{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:8px}
+.location-badge span{font-size:12px;color:white}
+.info-strip{display:flex;gap:12px;margin-top:16px}
+.info-chip{flex:1;background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;text-align:center}
+.info-chip .ic-val{font-size:14px;font-weight:600;color:white}
+.info-chip .ic-label{font-size:10px;color:rgba(255,255,255,0.6);margin-top:2px}
+
+/* SECTION COMMONS */
+section{padding:80px 24px}
+.container{max-width:1200px;margin:0 auto}
+.sec-header{margin-bottom:48px}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--hijau);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--hijau);border-radius:2px}
+.sec-title{font-family:'Merriweather',serif;font-size:clamp(24px,3.5vw,38px);font-weight:900;color:var(--teks);line-height:1.2}
+.sec-title em{color:var(--hijau);font-style:normal}
+.sec-desc{font-size:15px;color:var(--teks2);line-height:1.8;margin-top:12px;max-width:580px}
+
+/* PROFIL DESA */
+.profil{background:white}
+.profil-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:48px;align-items:start}
+.profil-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.tab-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--teks2);transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif}
+.tab-btn.active{background:var(--hijau);color:white;border-color:var(--hijau)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.profil-text{font-size:14px;color:var(--teks2);line-height:1.9}
+.profil-text p{margin-bottom:16px}
+.visi-misi{margin-top:20px}
+.vm-card{background:var(--hijau-pale);border-left:4px solid var(--hijau);border-radius:0 12px 12px 0;padding:20px;margin-bottom:16px}
+.vm-card h4{font-size:13px;font-weight:600;color:var(--hijau);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.vm-card p{font-size:14px;color:var(--teks2);line-height:1.7}
+.struktur-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.jabatan-card{background:var(--abu);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;border:1px solid var(--border)}
+.jabatan-avatar{width:44px;height:44px;background:var(--hijau);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:white;flex-shrink:0}
+.jabatan-card.kepala{background:var(--hijau-pale);border-color:rgba(13,92,58,0.2)}
+.jabatan-card.kepala .jabatan-avatar{background:var(--hijau);width:52px;height:52px}
+.jabatan-info h4{font-size:14px;font-weight:600}
+.jabatan-info p{font-size:12px;color:var(--teks3);margin-top:2px}
+.batas-tabel{width:100%;border-collapse:collapse;font-size:14px}
+.batas-tabel th{background:var(--hijau);color:white;padding:12px 16px;text-align:left;font-weight:500}
+.batas-tabel td{padding:11px 16px;border-bottom:1px solid var(--border)}
+.batas-tabel tr:last-child td{border-bottom:none}
+.batas-tabel tr:nth-child(even) td{background:var(--abu)}
+.geo-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.geo-card{background:var(--hijau-pale);border-radius:12px;padding:16px;text-align:center}
+.geo-card .gc-val{font-family:'Merriweather',serif;font-size:20px;font-weight:700;color:var(--hijau)}
+.geo-card .gc-label{font-size:11px;color:var(--teks3);margin-top:4px}
+.profil-sidebar{display:flex;flex-direction:column;gap:20px}
+.info-card{background:var(--abu);border-radius:16px;padding:24px;border:1px solid var(--border)}
+.info-card h3{font-family:'Merriweather',serif;font-size:16px;font-weight:700;margin-bottom:16px;color:var(--teks)}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.info-row:last-child{border-bottom:none}
+.info-row .ir-key{color:var(--teks3)}
+.info-row .ir-val{font-weight:600;color:var(--teks);text-align:right;max-width:60%}
+.map-embed{background:linear-gradient(135deg,#c8e6c9,#b3e5fc);border-radius:16px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid var(--border)}
+.map-embed .map-icon{font-size:40px}
+.map-embed p{font-size:13px;color:var(--teks2);font-weight:500}
+.map-embed span{font-size:11px;color:var(--teks3)}
+
+/* DATA STATISTIK */
+.statistik{background:var(--hijau-pale)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.stat-box{background:white;border-radius:16px;padding:24px;border:1px solid rgba(13,92,58,0.1);text-align:center;transition:transform 0.2s,box-shadow 0.2s}
+.stat-box:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(13,92,58,0.12)}
+.stat-box-icon{font-size:32px;margin-bottom:12px}
+.stat-box-num{font-family:'Merriweather',serif;font-size:32px;font-weight:900;color:var(--hijau)}
+.stat-box-label{font-size:13px;color:var(--teks3);margin-top:4px}
+.charts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.chart-card{background:white;border-radius:16px;padding:24px;border:1px solid var(--border)}
+.chart-card h3{font-size:15px;font-weight:600;margin-bottom:20px;color:var(--teks)}
+.chart-wrapper{position:relative;height:220px}
+
+/* POTENSI */
+.potensi{background:white}
+.potensi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.potensi-card{border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;cursor:pointer}
+.potensi-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,0.1)}
+.potensi-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.pi-wisata{background:linear-gradient(135deg,#1a5276,#2e86c1)}
+.pi-pertanian{background:linear-gradient(135deg,#1D6B4A,#27AE60)}
+.pi-perikanan{background:linear-gradient(135deg,#1a4a6b,#1565a0)}
+.pi-peternakan{background:linear-gradient(135deg,#6d4c41,#a1887f)}
+.pi-umkm{background:linear-gradient(135deg,#6a1b9a,#ab47bc)}
+.pi-komodo{background:linear-gradient(135deg,#4a235a,#7d3c98)}
+.potensi-badge{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.3);color:white;font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
+.potensi-body{padding:20px}
+.potensi-body h3{font-family:'Merriweather',serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.potensi-body p{font-size:13px;color:var(--teks2);line-height:1.6;margin-bottom:14px}
+.potensi-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{font-size:11px;background:var(--hijau-pale);color:var(--hijau);padding:4px 10px;border-radius:20px;font-weight:500}
+
+/* FASILITAS */
+.fasilitas{background:var(--abu)}
+.fasilitas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fasil-card{background:white;border-radius:16px;padding:24px;border:1px solid var(--border);display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s}
+.fasil-card:hover{border-color:var(--hijau-light)}
+.fasil-icon-ring{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
+.fi-pendidikan{background:#e3f2fd}
+.fi-ibadah{background:#fce4ec}
+.fi-kesehatan{background:#e8f5e9}
+.fi-jalan{background:#fff3e0}
+.fi-air{background:#e1f5fe}
+.fi-listrik{background:#fffde7}
+.fasil-card h3{font-size:15px;font-weight:600}
+.fasil-card p{font-size:13px;color:var(--teks2);line-height:1.6}
+.fasil-status{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;margin-top:4px}
+.status-tersedia{color:#2e7d32}
+.status-tersedia::before{content:'●';margin-right:2px}
+
+/* BERITA */
+.berita{background:white}
+.berita-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px}
+.berita-utama{border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:box-shadow 0.3s}
+.berita-utama:hover{box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+.bu-img{height:240px;background:linear-gradient(135deg,#0d5c3a,#1a7a4e);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.bu-kategori{position:absolute;top:16px;left:16px;background:var(--emas);color:white;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
+.bu-body{padding:24px}
+.bu-meta{font-size:12px;color:var(--teks3);margin-bottom:10px;display:flex;gap:16px}
+.bu-title{font-family:'Merriweather',serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px;color:var(--teks)}
+.bu-desc{font-size:14px;color:var(--teks2);line-height:1.7}
+.berita-list{display:flex;flex-direction:column;gap:16px}
+.berita-item{display:flex;gap:14px;padding:16px;background:var(--abu);border-radius:12px;border:1px solid var(--border);transition:background 0.2s;cursor:pointer}
+.berita-item:hover{background:var(--hijau-pale)}
+.bi-img{width:70px;height:70px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px}
+.bi1{background:linear-gradient(135deg,#0a4a72,#1565a0)}
+.bi2{background:linear-gradient(135deg,#4a1b6a,#7d3c98)}
+.bi3{background:linear-gradient(135deg,#1D6B4A,#27AE60)}
+.bi4{background:linear-gradient(135deg,#c5830a,#e09020)}
+.bi-content h4{font-size:13px;font-weight:600;line-height:1.4;color:var(--teks);margin-bottom:6px}
+.bi-content p{font-size:11px;color:var(--teks3)}
+.berita-more{text-align:center;margin-top:32px}
+.btn-more{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--hijau-pale);color:var(--hijau);border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;border:1.5px solid rgba(13,92,58,0.2);transition:all 0.2s}
+.btn-more:hover{background:var(--hijau);color:white}
+
+/* GALERI */
+.galeri{background:var(--hijau-pale)}
+.galeri-filter{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.filter-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:13px;font-weight:500;color:var(--teks2);transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif}
+.filter-btn.active{background:var(--hijau);color:white;border-color:var(--hijau)}
+.galeri-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.galeri-item{border-radius:14px;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative;transition:transform 0.3s}
+.galeri-item:hover{transform:scale(1.03)}
+.galeri-item:hover .galeri-overlay{opacity:1}
+.gi-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:44px}
+.g1{background:linear-gradient(135deg,#1a5276,#154360)}
+.g2{background:linear-gradient(135deg,#1D6B4A,#0d3d22)}
+.g3{background:linear-gradient(135deg,#6c3483,#4a235a)}
+.g4{background:linear-gradient(135deg,#c5830a,#8b5a0a)}
+.g5{background:linear-gradient(135deg,#0a4a72,#052a42)}
+.g6{background:linear-gradient(135deg,#1a7a4e,#0d4a2a)}
+.g7{background:linear-gradient(135deg,#7b1fa2,#4a0072)}
+.g8{background:linear-gradient(135deg,#1565a0,#0d3a6b)}
+.galeri-overlay{position:absolute;inset:0;background:rgba(13,92,58,0.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s}
+.galeri-overlay span{color:white;font-size:12px;font-weight:500;text-align:center;padding:0 16px}
+
+/* KONTAK */
+.kontak{background:white}
+.kontak-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+.kontak-info{display:flex;flex-direction:column;gap:20px}
+.k-card{background:var(--abu);border-radius:16px;padding:20px;border:1px solid var(--border);display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s}
+.k-card:hover{border-color:var(--hijau-light)}
+.k-icon-box{width:48px;height:48px;background:var(--hijau-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.k-info h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.k-info p{font-size:13px;color:var(--teks2);line-height:1.6}
+.kontak-form{background:var(--abu);border-radius:20px;padding:32px;border:1px solid var(--border)}
+.kontak-form h3{font-family:'Merriweather',serif;font-size:20px;font-weight:700;margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:13px;font-weight:500;color:var(--teks2)}
+.form-group input,.form-group textarea,.form-group select{padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;background:white;color:var(--teks);transition:border-color 0.2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--hijau)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-submit{width:100%;padding:14px;background:var(--hijau);color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--hijau-mid);transform:translateY(-1px)}
+.map-frame{background:linear-gradient(135deg,#c8e6c9,#bbdefb);border-radius:16px;height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px solid var(--border);margin-top:20px}
+.map-frame p{font-size:14px;color:var(--teks2);font-weight:500}
+
+/* FOOTER */
+footer{background:linear-gradient(160deg,#052a18,#0d5c3a)}
+.footer-top{max-width:1200px;margin:0 auto;padding:60px 24px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .fb-logo{font-family:'Merriweather',serif;font-size:18px;color:#6ee7b7;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:10px;max-width:280px}
+.footer-col h4{font-size:13px;font-weight:600;color:white;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{text-decoration:none;font-size:13px;color:rgba(255,255,255,0.55);transition:color 0.2s}
+.footer-col ul a:hover{color:#6ee7b7}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 24px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.4)}
+.footer-tagline{font-style:italic;color:rgba(255,255,255,0.5)!important;font-size:12px!important}
+
+/* MOBILE NAV */
+.mobile-menu{display:none;flex-direction:column;gap:4px;background:white;padding:16px 24px 24px;border-top:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{text-decoration:none;font-size:14px;font-weight:500;color:var(--teks2);padding:10px 12px;border-radius:8px}
+.mobile-menu a:hover{background:var(--hijau-pale);color:var(--hijau)}
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--hijau);color:white;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(13,92,58,0.3);transition:all 0.2s;z-index:999}
+.scroll-top.show{display:flex}
+.scroll-top:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,92,58,0.4)}
+
+/* ANIMATIONS */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeInUp 0.6s ease forwards}
+.fade-in-1{animation-delay:0.1s;opacity:0}
+.fade-in-2{animation-delay:0.2s;opacity:0}
+.fade-in-3{animation-delay:0.3s;opacity:0}
+.fade-in-4{animation-delay:0.4s;opacity:0}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .footer-top{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .potensi-grid{grid-template-columns:repeat(2,1fr)}
+  .fasilitas-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .hero-content{grid-template-columns:1fr;gap:40px}
+  .hero-visual-card{display:none}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .profil-grid{grid-template-columns:1fr}
+  .charts-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .potensi-grid{grid-template-columns:1fr}
+  .fasilitas-grid{grid-template-columns:1fr}
+  .berita-grid{grid-template-columns:1fr}
+  .galeri-grid{grid-template-columns:repeat(2,1fr)}
+  .kontak-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  section{padding:60px 16px}
+}
+@media(max-width:480px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .galeri-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">🏡</div>
+      <div>
+        <div class="nav-logo-text">Desa Tiwu Nampar</div>
+        <div class="nav-logo-sub">Kec. Komodo · Manggarai Barat · NTT</div>
+      </div>
+    </a>
+    <div class="nav-menu">
+      <a href="#profil">Profil</a>
+      <a href="#statistik">Data</a>
+      <a href="#potensi">Potensi</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#berita">Berita</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak" class="btn-portal">Kontak</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#profil" onclick="toggleMenu()">Profil Desa</a>
+    <a href="#statistik" onclick="toggleMenu()">Data Statistik</a>
+    <a href="#potensi" onclick="toggleMenu()">Potensi Desa</a>
+    <a href="#fasilitas" onclick="toggleMenu()">Fasilitas</a>
+    <a href="#berita" onclick="toggleMenu()">Berita</a>
+    <a href="#galeri" onclick="toggleMenu()">Galeri</a>
+    <a href="#kontak" onclick="toggleMenu()">Kontak</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-pattern"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge fade-in fade-in-1">
+        <div class="dot"></div>
+        <span>Website  Desa</span>
+      </div>
+      <h1 class="hero-title fade-in fade-in-2">Website<br><em>Desa Tiwu Nampar</em></h1>
+      <p class="hero-desc fade-in fade-in-3">Desa Tiwu Nampar — permata Kecamatan Komodo yang menyimpan harmoni alam, keberagaman budaya, dan potensi wisata yang luar biasa di jantung Manggarai Barat, Nusa Tenggara Timur.</p>
+      <div class="hero-btns fade-in fade-in-4">
+        <a href="#profil" class="btn-hero-primary">📋 Profil Desa</a>
+        <a href="#potensi" class="btn-hero-outline">🌿 Potensi Desa</a>
+      </div>
+      <div class="hero-stats fade-in fade-in-4">
+        <div class="hstat"><div class="hstat-icon">👥</div><div class="hstat-num">1.117</div><div class="hstat-label">Jiwa Penduduk</div></div>
+        <div class="hstat"><div class="hstat-icon">🏘️</div><div class="hstat-num">3</div><div class="hstat-label">Dusun</div></div>
+        <div class="hstat"><div class="hstat-icon">🗺️</div><div class="hstat-num">2.883</div><div class="hstat-label">km² Luas Wilayah</div></div>
+        <div class="hstat"><div class="hstat-icon">⚓</div><div class="hstat-num">Nelayan</div><div class="hstat-label">Mata Pencaharian Utama</div></div>
+      </div>
+    </div>
+    <div class="hero-visual-card">
+      <div class="village-illustration">
+        <div class="vill-sky"></div>
+        <div class="vill-sun"></div>
+        <div class="vill-birds">~ ~</div>
+        <div class="vill-mountain vm1"></div>
+        <div class="vill-mountain vm2"></div>
+        <div class="vill-mountain vm3"></div>
+        <div class="vill-sea">
+          <div class="vill-wave1"></div>
+          <div class="vill-wave2"></div>
+        </div>
+        <div class="vill-boat">⛵</div>
+        <div class="location-badge">
+          <span>📍</span>
+          <span>Kec. Komodo, Manggarai Barat</span>
+        </div>
+      </div>
+      <div class="info-strip">
+        <div class="info-chip"><div class="ic-val">NTT</div><div class="ic-label">Provinsi</div></div>
+        <div class="info-chip"><div class="ic-val">UNESCO</div><div class="ic-label">Warisan Dunia</div></div>
+        <div class="info-chip"><div class="ic-val">Komodo</div><div class="ic-label">Kecamatan</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f8faf9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PROFIL DESA -->
+<section id="profil" class="profil">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Profil Desa</div>
+      <div class="sec-title">Mengenal <em>Tiwu Nampar</em></div>
+      <p class="sec-desc">Informasi lengkap tentang sejarah, visi misi, struktur pemerintahan, dan kondisi geografis Desa Tiwu Nampar.</p>
+    </div>
+    <div class="profil-grid">
+      <div>
+        <div class="profil-tabs">
+          <button class="tab-btn active" onclick="showTab('sejarah')">📜 Sejarah</button>
+          <button class="tab-btn" onclick="showTab('visi')">🎯 Visi & Misi</button>
+          <button class="tab-btn" onclick="showTab('struktur')">👥 Struktur</button>
+          <button class="tab-btn" onclick="showTab('geografis')">🗺️ Geografis</button>
+        </div>
+
+        <div id="tab-sejarah" class="tab-content active profil-text">
+          <p>Tiwu Nampar adalah sebuah desa yang terletak di <strong>Kecamatan Komodo, Kabupaten Manggarai Barat, Provinsi Nusa Tenggara Timur</strong>. Desa ini memiliki luas wilayah 2.883 km² dengan jumlah penduduk tahun 2019 sebanyak 1.117 jiwa.</p>
+          <p>Penduduk asli di kabupaten Manggarai Barat umumnya adalah Suku Manggarai, Flores, Bajo, Saluan, dan saat ini ada pula suku pendatang lainnya seperti Suku Jawa dari Pulau Jawa, Suku Bugis dari Sulawesi Selatan, dan Suku Bima dari Nusa Tenggara Barat.</p>
+          <p>Pekerjaan utama masyarakat Manggarai Barat, dan termasuk di desa ini, adalah <strong>bertani dan nelayan</strong>, dan ada juga yang berprofesi sebagai pedagang dan Pegawai Negeri Sipil.</p>
+          <p>Masyarakat Kecamatan Komodo dikenal akan keberagaman budaya dan keagamaannya. Berdasarkan data BPS tahun 2020, pemeluk agama Kekristenan sebanyak 55,33% (Katolik 54,34% dan Protestan 0,99%), dan Islam 44,67%.</p>
+          <p>Berada di Kecamatan Komodo — kawasan yang mendunia berkat Taman Nasional Komodo Situs Warisan Dunia UNESCO — Desa Tiwu Nampar memiliki posisi strategis sebagai pintu masuk wisata alam dan budaya Manggarai Barat.</p>
+        </div>
+
+        <div id="tab-visi" class="tab-content">
+          <div class="visi-misi">
+            <div class="vm-card">
+              <h4>🎯 Visi Desa</h4>
+              <p>"Terwujudnya Desa Tiwu Nampar yang Maju, Mandiri, dan Sejahtera Berbasis Potensi Lokal dan Nilai-Nilai Kearifan Budaya Manggarai Barat."</p>
+            </div>
+            <div class="vm-card">
+              <h4>📌 Misi Desa</h4>
+              <p>1. Meningkatkan kualitas pelayanan publik yang transparan dan akuntabel.</p>
+            </div>
+            <div class="vm-card">
+              <h4></h4>
+              <p>2. Mengembangkan potensi ekonomi desa melalui pertanian, perikanan, dan pariwisata berbasis komunitas.</p>
+            </div>
+            <div class="vm-card">
+              <h4></h4>
+              <p>3. Melestarikan budaya dan adat istiadat Manggarai sebagai identitas dan aset wisata desa.</p>
+            </div>
+            <div class="vm-card">
+              <h4></h4>
+              <p>4. Meningkatkan infrastruktur desa dan akses layanan dasar bagi seluruh warga.</p>
+            </div>
+            <div class="vm-card">
+              <h4></h4>
+              <p>5. Memperkuat harmoni sosial dan toleransi antarumat beragama di desa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-struktur" class="tab-content">
+          <div class="struktur-grid">
+            <div class="jabatan-card kepala">
+              <div class="jabatan-avatar">👨‍💼</div>
+              <div class="jabatan-info">
+                <h4>[Nama Kepala Desa]</h4>
+                <p>Kepala Desa Tiwu Nampar</p>
+              </div>
+            </div>
+            <div class="jabatan-card">
+              <div class="jabatan-avatar">📋</div>
+              <div class="jabatan-info">
+                <h4>[Nama Sekretaris]</h4>
+                <p>Sekretaris Desa</p>
+              </div>
+            </div>
+            <div class="jabatan-card">
+              <div class="jabatan-avatar">💰</div>
+              <div class="jabatan-info">
+                <h4>[Nama Bendahara]</h4>
+                <p>Bendahara Desa</p>
+              </div>
+            </div>
+            <div class="jabatan-card">
+              <div class="jabatan-avatar">🏗️</div>
+              <div class="jabatan-info">
+                <h4>[Nama Kaur]</h4>
+                <p>Kepala Urusan Pembangunan</p>
+              </div>
+            </div>
+            <div class="jabatan-card">
+              <div class="jabatan-avatar">👨‍👩‍👧</div>
+              <div class="jabatan-info">
+                <h4>[Nama Kaur]</h4>
+                <p>Kepala Urusan Kesejahteraan</p>
+              </div>
+            </div>
+            <div class="jabatan-card">
+              <div class="jabatan-avatar">📜</div>
+              <div class="jabatan-info">
+                <h4>[Nama Kaur]</h4>
+                <p>Kepala Urusan Pemerintahan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-geografis" class="tab-content">
+          <div class="profil-text">
+            <p>Desa Tiwu Nampar terletak di Kecamatan Komodo, Kabupaten Manggarai Barat. Wilayah ini berada di kawasan yang dikelilingi oleh laut dan perbukitan yang indah, khas dari topografi Flores.</p>
+          </div>
+          <table class="batas-tabel" style="margin:20px 0">
+            <thead><tr><th>Arah</th><th>Batas Wilayah</th></tr></thead>
+            <tbody>
+              <tr><td>⬆️ Utara</td><td>[Batas Utara Desa]</td></tr>
+              <tr><td>⬇️ Selatan</td><td>[Batas Selatan Desa]</td></tr>
+              <tr><td>⬅️ Barat</td><td>[Batas Barat Desa]</td></tr>
+              <tr><td>➡️ Timur</td><td>[Batas Timur Desa]</td></tr>
+            </tbody>
+          </table>
+          <div class="geo-cards">
+            <div class="geo-card"><div class="gc-val">2.883 km²</div><div class="gc-label">Luas Wilayah</div></div>
+            <div class="geo-card"><div class="gc-val">3 Dusun</div><div class="gc-label">Pembagian Wilayah</div></div>
+            <div class="geo-card"><div class="gc-val">Tropis</div><div class="gc-label">Iklim</div></div>
+            <div class="geo-card"><div class="gc-val">Pesisir</div><div class="gc-label">Topografi</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profil-sidebar">
+        <div class="info-card">
+          <h3>📋 Data Singkat Desa</h3>
+          <div class="info-row"><span class="ir-key">Nama Desa</span><span class="ir-val">Tiwu Nampar</span></div>
+          <div class="info-row"><span class="ir-key">Kecamatan</span><span class="ir-val">Komodo</span></div>
+          <div class="info-row"><span class="ir-key">Kabupaten</span><span class="ir-val">Manggarai Barat</span></div>
+          <div class="info-row"><span class="ir-key">Provinsi</span><span class="ir-val">Nusa Tenggara Timur</span></div>
+          <div class="info-row"><span class="ir-key">Luas Wilayah</span><span class="ir-val">2.883 km²</span></div>
+          <div class="info-row"><span class="ir-key">Jumlah Penduduk</span><span class="ir-val">1.117 Jiwa</span></div>
+          <div class="info-row"><span class="ir-key">Jumlah Dusun</span><span class="ir-val">3 Dusun</span></div>
+          <div class="info-row"><span class="ir-key">Kode Pos</span><span class="ir-val">[Kode Pos]</span></div>
+        </div>
+        <div class="map-embed">
+          <div class="map-icon">🗺️</div>
+          <p>Peta Desa Tiwu Nampar</p>
+          <span>Kec. Komodo, Manggarai Barat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA STATISTIK -->
+<section id="statistik" class="statistik">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Transparansi Data</div>
+      <div class="sec-title">Data Statistik <em>Desa</em></div>
+      <p class="sec-desc">Data kependudukan dan informasi desa yang disajikan secara transparan dan akuntabel.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-box-icon">👥</div><div class="stat-box-num" id="count-penduduk">0</div><div class="stat-box-label">Total Penduduk</div></div>
+      <div class="stat-box"><div class="stat-box-icon">👨‍👩‍👧</div><div class="stat-box-num" id="count-kk">0</div><div class="stat-box-label">Kepala Keluarga</div></div>
+      <div class="stat-box"><div class="stat-box-icon">🏘️</div><div class="stat-box-num">3</div><div class="stat-box-label">Jumlah Dusun</div></div>
+      <div class="stat-box"><div class="stat-box-icon">📐</div><div class="stat-box-num">2.883</div><div class="stat-box-label">km² Luas Wilayah</div></div>
+      <div class="stat-box"><div class="stat-box-icon">👨</div><div class="stat-box-num" id="count-laki">0</div><div class="stat-box-label">Penduduk Laki-laki</div></div>
+      <div class="stat-box"><div class="stat-box-icon">👩</div><div class="stat-box-num" id="count-perempuan">0</div><div class="stat-box-label">Penduduk Perempuan</div></div>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>📊 Penduduk Berdasarkan Pekerjaan</h3>
+        <div class="chart-wrapper"><canvas id="chartPekerjaan"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>📚 Penduduk Berdasarkan Pendidikan</h3>
+        <div class="chart-wrapper"><canvas id="chartPendidikan"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>🙏 Komposisi Agama</h3>
+        <div class="chart-wrapper"><canvas id="chartAgama"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>👶 Kelompok Usia Penduduk</h3>
+        <div class="chart-wrapper"><canvas id="chartUsia"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POTENSI DESA -->
+<section id="potensi" class="potensi">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Kekayaan Desa</div>
+      <div class="sec-title">Potensi <em>Unggulan</em></div>
+      <p class="sec-desc">Beragam potensi desa yang menjadi landasan pengembangan ekonomi dan pariwisata berbasis komunitas.</p>
+    </div>
+    <div class="potensi-grid">
+      <div class="potensi-card">
+        <div class="potensi-img pi-wisata"><span>🏖️</span><span class="potensi-badge">Unggulan</span></div>
+        <div class="potensi-body">
+          <h3>Wisata Alam Pesisir</h3>
+          <p>Pantai berpasir putih dengan air laut jernih. Ideal untuk snorkeling, memancing, dan menikmati sunset spektakuler khas Flores.</p>
+          <div class="potensi-tags"><span class="ptag">Pantai</span><span class="ptag">Snorkeling</span><span class="ptag">Sunset</span></div>
+        </div>
+      </div>
+      <div class="potensi-card">
+        <div class="potensi-img pi-komodo"><span>🦎</span><span class="potensi-badge">UNESCO</span></div>
+        <div class="potensi-body">
+          <h3>Jalur Komodo</h3>
+          <p>Pintu akses strategis menuju Taman Nasional Komodo — Situs Warisan Dunia UNESCO. Base camp ideal menuju Pulau Komodo.</p>
+          <div class="potensi-tags"><span class="ptag">Komodo</span><span class="ptag">Trekking</span><span class="ptag">Ekowisata</span></div>
+        </div>
+      </div>
+      <div class="potensi-card">
+        <div class="potensi-img pi-pertanian"><span>🌾</span></div>
+        <div class="potensi-body">
+          <h3>Pertanian</h3>
+          <p>Lahan pertanian produktif dengan komoditas padi, jagung, dan tanaman hortikultura yang menjadi tulang punggung ketahanan pangan desa.</p>
+          <div class="potensi-tags"><span class="ptag">Padi</span><span class="ptag">Jagung</span><span class="ptag">Agrowisata</span></div>
+        </div>
+      </div>
+      <div class="potensi-card">
+        <div class="potensi-img pi-perikanan"><span>🐟</span></div>
+        <div class="potensi-body">
+          <h3>Perikanan</h3>
+          <p>Hasil tangkapan ikan laut segar berlimpah dari nelayan lokal. Potensi budidaya perikanan yang belum sepenuhnya dioptimalkan.</p>
+          <div class="potensi-tags"><span class="ptag">Nelayan</span><span class="ptag">Budidaya</span><span class="ptag">Ekspor</span></div>
+        </div>
+      </div>
+      <div class="potensi-card">
+        <div class="potensi-img pi-peternakan"><span>🐄</span></div>
+        <div class="potensi-body">
+          <h3>Peternakan</h3>
+          <p>Peternakan sapi, kambing, dan unggas oleh masyarakat lokal. Berpotensi menjadi sumber protein hewani dan penghasil income tambahan.</p>
+          <div class="potensi-tags"><span class="ptag">Sapi</span><span class="ptag">Kambing</span><span class="ptag">Unggas</span></div>
+        </div>
+      </div>
+      <div class="potensi-card">
+        <div class="potensi-img pi-umkm"><span>🧵</span></div>
+        <div class="potensi-body">
+          <h3>Produk UMKM</h3>
+          <p>Tenun ikat khas Manggarai, kerajinan anyaman, kuliner tradisional, dan aksesoris lokal yang bernilai seni dan ekonomi tinggi.</p>
+          <div class="potensi-tags"><span class="ptag">Tenun Ikat</span><span class="ptag">Kerajinan</span><span class="ptag">Kuliner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASILITAS -->
+<section id="fasilitas" class="fasilitas">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Infrastruktur</div>
+      <div class="sec-title">Fasilitas <em>Desa</em></div>
+      <p class="sec-desc">Sarana dan prasarana yang tersedia untuk mendukung kehidupan masyarakat Desa Tiwu Nampar.</p>
+    </div>
+    <div class="fasilitas-grid">
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-pendidikan">🏫</div>
+        <h3>Fasilitas Pendidikan</h3>
+        <p>SD dan SMP tersedia di desa untuk mendukung wajib belajar 9 tahun. Akses ke SMA di kecamatan.</p>
+        <div class="fasil-status status-tersedia">Tersedia</div>
+      </div>
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-ibadah">⛪</div>
+        <h3>Tempat Ibadah</h3>
+        <p>Gereja Katolik, Gereja Protestan, dan Masjid tersedia — mencerminkan kerukunan umat beragama yang harmonis.</p>
+        <div class="fasil-status status-tersedia">Tersedia</div>
+      </div>
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-kesehatan">🏥</div>
+        <h3>Posyandu & Kesehatan</h3>
+        <p>Posyandu aktif untuk layanan ibu dan anak. Puskesmas pembantu untuk layanan kesehatan dasar warga.</p>
+        <div class="fasil-status status-tersedia">Tersedia</div>
+      </div>
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-jalan">🛣️</div>
+        <h3>Jalan Desa</h3>
+        <p>Jalan desa yang menghubungkan dusun-dusun. Sebagian sudah diaspal, sebagian dalam proses peningkatan.</p>
+        <div class="fasil-status status-tersedia">Dalam Pengembangan</div>
+      </div>
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-air">💧</div>
+        <h3>Air Bersih</h3>
+        <p>Sistem pipanisasi air bersih untuk kebutuhan rumah tangga warga desa dengan sumber mata air pegunungan.</p>
+        <div class="fasil-status status-tersedia">Tersedia</div>
+      </div>
+      <div class="fasil-card">
+        <div class="fasil-icon-ring fi-listrik">⚡</div>
+        <h3>Listrik PLN</h3>
+        <p>Jaringan listrik PLN yang melayani sebagian besar wilayah desa. Program elektrifikasi terus berjalan.</p>
+        <div class="fasil-status status-tersedia">Tersedia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section id="berita" class="berita">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Informasi Terkini</div>
+      <div class="sec-title">Berita & <em>Kegiatan</em></div>
+      <p class="sec-desc">Informasi terbaru tentang kegiatan, pembangunan, dan pengumuman resmi Desa Tiwu Nampar.</p>
+    </div>
+    <div class="berita-grid">
+      <div class="berita-utama">
+        <div class="bu-img">
+          <span>🏗️</span>
+          <span class="bu-kategori">Pembangunan</span>
+        </div>
+        <div class="bu-body">
+          <div class="bu-meta">
+            <span>📅 Maret 2024</span>
+            <span>👁️ 248 dilihat</span>
+          </div>
+          <div class="bu-title">Pembangunan Jalan Desa Tiwu Nampar Fase II Mulai Dikerjakan</div>
+          <div class="bu-desc">Pemerintah Desa Tiwu Nampar memulai pengerjaan pembangunan jalan desa fase kedua yang akan menghubungkan Dusun II dengan dermaga nelayan. Proyek ini didanai dari Dana Desa tahun 2024 dan diharapkan selesai dalam tiga bulan ke depan...</div>
+        </div>
+      </div>
+      <div class="berita-list">
+        <div class="berita-item">
+          <div class="bi-img bi1">🎭</div>
+          <div class="bi-content">
+            <h4>Festival Budaya Manggarai Barat Digelar di Tiwu Nampar</h4>
+            <p>📅 Februari 2024 · Kegiatan Adat</p>
+          </div>
+        </div>
+        <div class="berita-item">
+          <div class="bi-img bi2">📊</div>
+          <div class="bi-content">
+            <h4>Musrenbang Desa 2024: Warga Usulkan Pembangunan Dermaga Baru</h4>
+            <p>📅 Januari 2024 · Pemerintahan</p>
+          </div>
+        </div>
+        <div class="berita-item">
+          <div class="bi-img bi3">🌱</div>
+          <div class="bi-content">
+            <h4>Pelatihan Budidaya Rumput Laut untuk Nelayan Desa</h4>
+            <p>📅 Desember 2023 · Ekonomi</p>
+          </div>
+        </div>
+        <div class="berita-item">
+          <div class="bi-img bi4">📢</div>
+          <div class="bi-content">
+            <h4>Pengumuman: Jadwal Penerimaan BLT Dana Desa Tahap I 2024</h4>
+            <p>📅 November 2023 · Pengumuman</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="berita-more">
+      <a href="#" class="btn-more">Lihat Semua Berita →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri" class="galeri">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Dokumentasi</div>
+      <div class="sec-title">Galeri <em>Foto</em></div>
+      <p class="sec-desc">Dokumentasi visual kegiatan, alam, dan kehidupan masyarakat Desa Tiwu Nampar.</p>
+    </div>
+    <div class="galeri-filter">
+      <button class="filter-btn active" onclick="filterGaleri('semua',this)">Semua</button>
+      <button class="filter-btn" onclick="filterGaleri('alam',this)">🌿 Alam</button>
+      <button class="filter-btn" onclick="filterGaleri('adat',this)">🎭 Adat</button>
+      <button class="filter-btn" onclick="filterGaleri('kegiatan',this)">🤝 Kegiatan</button>
+      <button class="filter-btn" onclick="filterGaleri('pembangunan',this)">🏗️ Pembangunan</button>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item" data-cat="alam"><div class="gi-inner g1">🏖️</div><div class="galeri-overlay"><span>Pantai Tiwu Nampar</span></div></div>
+      <div class="galeri-item" data-cat="adat"><div class="gi-inner g2">🎭</div><div class="galeri-overlay"><span>Upacara Adat Manggarai</span></div></div>
+      <div class="galeri-item" data-cat="kegiatan"><div class="gi-inner g3">🤝</div><div class="galeri-overlay"><span>Gotong Royong Warga</span></div></div>
+      <div class="galeri-item" data-cat="pembangunan"><div class="gi-inner g4">🏗️</div><div class="galeri-overlay"><span>Pembangunan Desa</span></div></div>
+      <div class="galeri-item" data-cat="alam"><div class="gi-inner g5">🌄</div><div class="galeri-overlay"><span>Perbukitan Flores</span></div></div>
+      <div class="galeri-item" data-cat="kegiatan"><div class="gi-inner g6">⚓</div><div class="galeri-overlay"><span>Nelayan Lokal</span></div></div>
+      <div class="galeri-item" data-cat="adat"><div class="gi-inner g7">🧵</div><div class="galeri-overlay"><span>Tenun Ikat Manggarai</span></div></div>
+      <div class="galeri-item" data-cat="alam"><div class="gi-inner g8">🦎</div><div class="galeri-overlay"><span>Jalur Menuju Komodo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="kontak">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Hubungi Kami</div>
+      <div class="sec-title">Kontak & <em>Layanan</em></div>
+      <p class="sec-desc">Silakan hubungi kantor Desa Tiwu Nampar untuk informasi lebih lanjut atau pengaduan masyarakat.</p>
+    </div>
+    <div class="kontak-grid">
+      <div class="kontak-info">
+        <div class="k-card">
+          <div class="k-icon-box">📍</div>
+          <div class="k-info">
+            <h4>Alamat Kantor Desa</h4>
+            <p>Desa Tiwu Nampar, Kecamatan Komodo,<br>Kabupaten Manggarai Barat,<br>Provinsi Nusa Tenggara Timur</p>
+          </div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon-box">📞</div>
+          <div class="k-info">
+            <h4>Nomor Telepon</h4>
+            <p>[Nomor Telepon Kantor Desa]</p>
+          </div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon-box">📱</div>
+          <div class="k-info">
+            <h4>WhatsApp</h4>
+            <p>[Nomor WhatsApp Desa]</p>
+          </div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon-box">📧</div>
+          <div class="k-info">
+            <h4>Email</h4>
+            <p>[Email Resmi Desa]</p>
+          </div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon-box">🕐</div>
+          <div class="k-info">
+            <h4>Jam Pelayanan</h4>
+            <p>Senin — Jumat: 08.00 — 16.00 WITA<br>Sabtu: 08.00 — 12.00 WITA</p>
+          </div>
+        </div>
+        <div class="map-frame">
+          <div style="font-size:40px">🗺️</div>
+          <p>Peta Lokasi Kantor Desa</p>
+        </div>
+      </div>
+      <div class="kontak-form">
+        <h3>✉️ Kirim Pesan</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" placeholder="Masukkan nama Anda">
+          </div>
+          <div class="form-group">
+            <label>Nomor HP / WA</label>
+            <input type="text" placeholder="08xxxxxxxxxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@anda.com">
+        </div>
+        <div class="form-group">
+          <label>Keperluan</label>
+          <select>
+            <option>-- Pilih Keperluan --</option>
+            <option>Informasi Umum</option>
+            <option>Pengaduan</option>
+            <option>Permohonan Surat</option>
+            <option>Kerjasama / Investasi</option>
+            <option>Kunjungan Wisata</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pesan *</label>
+          <textarea placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="handleSubmit()">
+          <span>📨</span> Kirim Pesan
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-logo">🏡 Desa Tiwu Nampar</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase">Website Resmi Desa</div>
+      <p>Kecamatan Komodo · Kabupaten Manggarai Barat · Provinsi Nusa Tenggara Timur · Indonesia</p>
+      <p style="color:rgba(255,255,255,0.4);font-style:italic;margin-top:12px">"Harmoni Alam, Budaya, dan Keberagaman di Ujung Flores"</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#profil">Profil Desa</a></li>
+        <li><a href="#statistik">Data Statistik</a></li>
+        <li><a href="#potensi">Potensi Desa</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#berita">Berita Desa</a></li>
+        <li><a href="#galeri">Galeri Foto</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#">Transparansi APBDes</a></li>
+        <li><a href="#">Layanan Online</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Tautan</h4>
+      <ul>
+        <li><a href="#">Kab. Manggarai Barat</a></li>
+        <li><a href="#">Prov. NTT</a></li>
+        <li><a href="#">TN Komodo</a></li>
+        <li><a href="#">BPS Manggarai Barat</a></li>
+        <li><a href="#">Kemendagri</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Pemerintah Desa Tiwu Nampar. Hak Cipta Dilindungi.</p>
+    <p class="footer-tagline">Dibuat untuk Tugas IMK · Politeknik eLBajo Commodus · Labuan Bajo</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('navbar');
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);
+});
+
+// HAMBURGER
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// TABS
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// COUNTER ANIMATION
+function animateCounter(id,target,suffix=''){
+  const el=document.getElementById(id);
+  if(!el)return;
+  let current=0;
+  const step=Math.ceil(target/60);
+  const timer=setInterval(()=>{
+    current=Math.min(current+step,target);
+    el.textContent=current.toLocaleString('id-ID')+(suffix?suffix:'');
+    if(current>=target)clearInterval(timer);
+  },30);
+}
+
+// OBSERVE STATS
+const statsObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    animateCounter('count-penduduk',1117);
+    animateCounter('count-kk',280);
+    animateCounter('count-laki',572);
+    animateCounter('count-perempuan',545);
+    statsObs.disconnect();
+    initCharts();
+  }
+},{threshold:0.2});
+statsObs.observe(document.getElementById('statistik'));
+
+// CHARTS
+function initCharts(){
+  const hijau='#0d5c3a',hijauMid='#1a7a4e',hijauLight='#2ea06a',biru='#0a4a72',biruMid='#1565a0',emas='#c5830a';
+
+  // Pekerjaan
+  new Chart(document.getElementById('chartPekerjaan'),{
+    type:'doughnut',
+    data:{
+      labels:['Nelayan','Petani','PNS','Pedagang','Lainnya'],
+      datasets:[{data:[38,28,12,14,8],backgroundColor:[biru,hijau,emas,hijauLight,'#9e9e9e'],borderWidth:2,borderColor:'white'}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11},padding:12}}}}
+  });
+
+  // Pendidikan
+  new Chart(document.getElementById('chartPendidikan'),{
+    type:'bar',
+    data:{
+      labels:['Tidak Sekolah','SD','SMP','SMA','D3/S1'],
+      datasets:[{label:'Jumlah Warga',data:[85,320,280,240,92],backgroundColor:[hijauLight,hijau,hijauMid,biru,emas],borderRadius:8,borderSkipped:false}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#f0f0f0'}},x:{grid:{display:false}}}}
+  });
+
+  // Agama
+  new Chart(document.getElementById('chartAgama'),{
+    type:'pie',
+    data:{
+      labels:['Katolik (54.34%)','Islam (44.67%)','Protestan (0.99%)'],
+      datasets:[{data:[54.34,44.67,0.99],backgroundColor:[hijau,biru,emas],borderWidth:3,borderColor:'white'}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:12}}}}
+  });
+
+  // Usia
+  new Chart(document.getElementById('chartUsia'),{
+    type:'bar',
+    data:{
+      labels:['0-5','6-12','13-17','18-30','31-50','51-65','65+'],
+      datasets:[{label:'Jumlah',data:[95,148,122,285,312,108,47],backgroundColor:hijauMid,borderRadius:6,borderSkipped:false}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#f0f0f0'}},x:{grid:{display:false}}}}
+  });
+}
+
+// GALERI FILTER
+function filterGaleri(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.galeri-item').forEach(item=>{
+    if(cat==='semua'||item.dataset.cat===cat){
+      item.style.display='block';
+    }else{
+      item.style.display='none';
+    }
+  });
+}
+
+// FORM SUBMIT
+function handleSubmit(){
+  alert('Pesan Anda telah terkirim! Kami akan menghubungi Anda segera.\n\nTerima kasih telah menghubungi Desa Tiwu Nampar.');
+}
+
+// FADE IN ON SCROLL
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.animation='fadeInUp 0.6s ease forwards';
+      fadeObs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.potensi-card,.fasil-card,.berita-utama,.berita-item,.galeri-item,.stat-box').forEach(el=>{
+  el.style.opacity='0';
+  fadeObs.observe(el);
+});
+
+// Active nav link
+window.addEventListener('scroll',()=>{
+  const sections=['home','profil','statistik','potensi','fasilitas','berita','galeri','kontak'];
+  const scrollY=window.scrollY+100;
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(scrollY>=el.offsetTop&&scrollY<el.offsetTop+el.offsetHeight){
+      document.querySelectorAll('.nav-menu a').forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('href')==='#'+id);
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
